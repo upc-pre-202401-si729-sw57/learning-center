@@ -20,13 +20,15 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import { HomeComponent } from './public/pages/home/home.component';
 import { AboutComponent } from './public/pages/about/about.component';
 import { PageNotFoundComponent } from './public/pages/page-not-found/page-not-found.component';
+import { StudentFormComponent } from './learning/components/student-form/student-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    StudentFormComponent
   ],
   imports: [
     BrowserModule,
