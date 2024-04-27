@@ -3,27 +3,36 @@ import {Student} from "../../model/student.entity";
 import {NgForm} from "@angular/forms";
 
 @Component({
-  selector: 'app-student-form',
-  templateUrl: './student-form.component.html',
-  styleUrl: './student-form.component.css'
+  selector: 'app-student-create-and-edit',
+  templateUrl: './student-create-and-edit.component.html',
+  styleUrl: './student-create-and-edit.component.css'
 })
-export class StudentFormComponent {
+export class StudentCreateAndEditComponent {
+
+  // Attributes
+
   @Input() student: Student;
   @Input() editMode = false;
   @Output() studentAdded = new EventEmitter<Student>();
   @Output() studentUpdated = new EventEmitter<Student>();
   @Output() editCanceled = new EventEmitter();
-
   @ViewChild('studentForm', { static: false}) studentForm!: NgForm;
+
+  // Methods
+
   constructor() {
     this.student = {} as Student;
   }
+
+  // Private Methods
 
   private resetEditState() {
     this.editMode = false;
     this.studentForm.resetForm();
     this.student = {} as Student;
   }
+
+  // Event Handlers
 
   onSubmit() {
     if (this.studentForm.form.valid) {
@@ -42,4 +51,5 @@ export class StudentFormComponent {
     this.resetEditState();
     this.editCanceled.emit();
   }
+
 }

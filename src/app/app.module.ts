@@ -20,7 +20,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import { HomeComponent } from './public/pages/home/home.component';
 import { AboutComponent } from './public/pages/about/about.component';
 import { PageNotFoundComponent } from './public/pages/page-not-found/page-not-found.component';
-import { StudentFormComponent } from './learning/components/student-form/student-form.component';
+import { StudentCreateAndEditComponent } from './learning/components/student-create-and-edit/student-create-and-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { StudentFormComponent } from './learning/components/student-form/student
     HomeComponent,
     AboutComponent,
     PageNotFoundComponent,
-    StudentFormComponent
+    StudentCreateAndEditComponent
   ],
   imports: [
     BrowserModule,
