@@ -17,11 +17,11 @@ export class AuthenticationSectionComponent {
   }
 
   onSignIn() {
-    this.router.navigate(['/sign-in']);
+    this.router.navigate(['/sign-in']).then();
   }
 
   onSignUp() {
-    this.router.navigate(['/sign-up']);
+    this.router.navigate(['/sign-up']).then();
   }
 
   onSignOut() {

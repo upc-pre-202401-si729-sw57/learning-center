@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule, provideHttpClient, withInterceptors} from "@angular/common/http";
 import {StudentsService} from "./learning/services/students.service";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -25,6 +25,7 @@ import { StudentManagementComponent } from './learning/pages/student-management/
 import { SignInComponent } from './iam/pages/sign-in/sign-in.component';
 import { SignUpComponent } from './iam/pages/sign-up/sign-up.component';
 import { AuthenticationSectionComponent } from './iam/components/authentication-section/authentication-section.component';
+import {authenticationInterceptor} from "./iam/services/authentication.interceptor";
 
 @NgModule({
   declarations: [
@@ -55,7 +56,9 @@ import { AuthenticationSectionComponent } from './iam/components/authentication-
     MatCardModule,
     MatGridListModule
   ],
-  providers: [StudentsService, provideAnimationsAsync()],
+  providers: [StudentsService, provideAnimationsAsync(),
+    provideHttpClient(withInterceptors([authenticationInterceptor]))
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
